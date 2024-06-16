@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SignUpFragment">
+
+
+    <EditText
+        android:id="@+id/editFieldName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200sp"
+        android:ems="10"
+
+        android:hint="Name"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/editFieldSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editFieldName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:ems="10"
+        android:hint="Surname"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/editFieldEmailSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editFieldSurname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+
+    <EditText
+        android:id="@+id/editFieldPasswordSignUP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editFieldEmailSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editFieldPasswordSignUP"
+        android:layout_marginTop="15dp"
+
+        android:text="Sign up" />
+
+    <Button
+        android:id="@+id/buttonToLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Return to Log in" />
+</RelativeLayout>
