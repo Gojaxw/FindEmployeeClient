@@ -35,7 +35,6 @@ public class MapOfEmployeeView extends View {
         this.context = context;
     }
 
-    //Toast.makeText(getContext(),""+size,Toast.LENGTH_SHORT).show();
 
     Context context;
     @Override
@@ -75,7 +74,6 @@ public class MapOfEmployeeView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        Toast.makeText(context, coordinateX+"   "+coordinateY, Toast.LENGTH_SHORT).show();
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(15);
@@ -83,9 +81,14 @@ public class MapOfEmployeeView extends View {
 
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
         paint.setColor(Color.BLACK);
+
         if(ifSetCoordinate) {
+
             for (int i = 0; i < employees.size(); i++) {
-                canvas.drawCircle((float) (employees.get(i).getCoordinateX()), (float) (employees.get(i).getCoordinateY()), 30, paint);
+//                canvas.drawCircle((float) (0.9*coefficient_of_change), (float) (0.9*coefficient_of_change), 100, paint);
+//                System.out.println(employees.size());
+//                System.out.println(i+"{\n"+employees.get(i).getCoordinateX()+",\n"+employees.get(i).getCoordinateY()+"}\n");
+                canvas.drawCircle((float) (employees.get(i).getCoordinateX()*coefficient_of_change), (float) (employees.get(i).getCoordinateY()*coefficient_of_change), 30, paint);
             }
         }else{
             canvas.drawCircle((float) (getHeight()/2), (float) (getWidth()/2), 50, paint);

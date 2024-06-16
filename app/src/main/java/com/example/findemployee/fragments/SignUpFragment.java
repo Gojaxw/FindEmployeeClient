@@ -67,7 +67,7 @@ public class SignUpFragment extends Fragment {
                 employeeApi.signUp(employee).enqueue(new Callback<Employee>() {
                     @Override
                     public void onResponse(Call<Employee> call, Response<Employee> response) {
-
+                        System.out.println(response.body().toString());
                         mainActivity.ifSignIn=true;
                         mainActivity.setEmployee(response.body());
                         mainActivity.changeFragment(mainActivity.calibrationFragment);

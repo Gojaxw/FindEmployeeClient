@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity   implements SensorEventList
             Toast.makeText(this, "Sensor service not detected.", Toast.LENGTH_SHORT).show();
         }
         changeFragment(LogInFragment);
+        //getEmployees();
     }
 
     public void changeFragment(Fragment fragment){
@@ -120,9 +121,27 @@ public class MainActivity extends AppCompatActivity   implements SensorEventList
         return employee;
     }
 
+    public void setCoordinatesOnServer(){
+        RetrofitService retrofitService =new RetrofitService();
+        EmployeeApi employeeApi =  retrofitService.getRetrofit().create(EmployeeApi.class);
+        employeeApi.signUp(employee).enqueue(new Callback<Employee>() {
+            @Override
+            public void onResponse(Call<Employee> call, Response<Employee> response) {
+//                System.out.println(response.body().getCoordinateX()+"\n"+response.body().getCoordinateY());
+
+            }
+
+            @Override
+            public void onFailure(Call<Employee> call, Throwable t) {
+
+            }
+        });
+
+    }
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
+
     @Override
     public void onSensorChanged(SensorEvent event) {
 
@@ -171,6 +190,8 @@ public class MainActivity extends AppCompatActivity   implements SensorEventList
                         calculationDeviation.results.get(2)
                 );
                 time_last = time_now;
+                employee.setCoordinateX(coordinates.x_now);
+                employee.setCoordinateY(coordinates.y_now);
             // if(coordinates.x_now>0.000001)   Toast.makeText(this, " "+coordinates.x_now+"   "+coordinates.y_now, Toast.LENGTH_SHORT).show();
 
 

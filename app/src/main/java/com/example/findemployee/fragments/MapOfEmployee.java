@@ -94,28 +94,18 @@ public class MapOfEmployee extends Fragment {
         z=zl/1000.0;
             //if(x!=0)      Toast.makeText(mainActivity, x+"", Toast.LENGTH_SHORT).show();
             textViewCoordinate.setText("X: " + x + "\nY: " + y + "\nZ: " + z);
-        employeeApi.getAllEmployee(mainActivity.getEmployee()).enqueue(new Callback<List<Employee>>() {
+            mainActivity.setCoordinatesOnServer();
+
+        employeeApi.getAllEmployees().enqueue(new Callback<List<Employee>>() {
             @Override
             public void onResponse(Call<List<Employee>> call, Response<List<Employee>> response) {
                 employeeArrayList=new ArrayList<>();
-//                employeeArrayList= (ArrayList<Employee>) response.body();
+
+                employeeArrayList= (ArrayList<Employee>) response.body();
+                employeeCard.setCoordinates(employeeArrayList);
 
 
-        if(response.body()==null){
-            Toast.makeText(mainActivity, "null", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(mainActivity, response.body().get(0)+"", Toast.LENGTH_SHORT).show();
-        }
 
-
-//                if(employeeArrayList.size()==0){
-//                    Toast.makeText(mainActivity, "Fail_@", Toast.LENGTH_SHORT).show();
-//                }
-//                else{
-//                    Toast.makeText(mainActivity, employeeArrayList.get(0).toString(), Toast.LENGTH_SHORT).show();
-////                employeeCard.setCoordinates(employeeArrayList);
-//                    ifSetCoordinate=true;
-//                }
 
             }
 
